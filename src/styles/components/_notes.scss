@@ -46,7 +46,7 @@
     box-shadow: 5px 5px $dark-grey;
     height: 150px;
 
-    transition: transform .3s ease;
+    transition: transform .3s ease-in;
 
     &:hover {
         transform: scale(1.05);
