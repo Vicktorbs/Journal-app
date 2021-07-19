@@ -1,26 +1,46 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { activeNote } from '../../actions/notes';
 
-export const JournalEntry = () => {
+export const JournalEntry = ({ id, date, title, body, url }) => {
+
+    const dispatch = useDispatch()
+    const noteDate = moment(date);
+    
+    const handleEntryClick = () => {
+        console.log('clicked');
+        dispatch(activeNote(id, {
+            date,
+            title,
+            body,
+            url
+        }))
+    }
+
     return (
-        <div className="journal__entry pointer">
-            <div 
-                className="journal__entry-picture"
-                style={{
-                    backgroundSize: 'cover',
-                    backgroundImage: 'url(https://ninjinanimehome.files.wordpress.com/2019/07/3e8ca-lupin2biii2bpart2bv2b255bsub-espa25c325b1ol255d255bmega-mf-gd255d255bhd-fullhd255d255bonline255d2bsoanimesitehd2.jpg)'
-                }}
-            ></div>
+        <div className="journal__entry pointer" onClick={ handleEntryClick }>
+            {
+                url &&
+                <div 
+                    className="journal__entry-picture"
+                    style={{
+                        backgroundSize: 'cover',
+                        backgroundImage: `url(${ url })`
+                    }}
+                ></div>
+            }
             <div className="journal__entry-body">
                 <p className="journal__entry-title">
-                    A new day
+                    { title }
                 </p>
                 <p className="journal__entry-content">
-                    loremeufndikf
+                    { body }
                 </p>
             </div>
             <div className="journal__entry-date-box">
-                <span>Monday</span>
-                <h3>28</h3>
+                <span>{ noteDate.format('dddd') }</span>
+                <h3>{ noteDate.format('Do') }</h3>
             </div>
         </div>
     )
