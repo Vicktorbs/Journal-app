@@ -35,7 +35,10 @@ export const AppRouter = () => {
 
     if (checking) {
         return (
-            <h1>Wait, checking...</h1>
+            <h1 className="nothing__main-content">
+                Wait, checking...
+                <i class="fas fa-spinner mt-5 nothing__spinner"></i>
+            </h1>
         )
     }
 

@@ -7,9 +7,9 @@ import { Sidebar } from './Sidebar'
 export const JournalScreen = () => {
 
     const { active } = useSelector(state => state.notes)
-
+    
     return (
-        <div className="journal__main-countent">
+        <div className="journal__main-countent animate__animated animate__fadeIn">
             
             <Sidebar />
             <main>
