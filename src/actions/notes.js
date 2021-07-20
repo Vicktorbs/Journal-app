@@ -18,12 +18,21 @@ export const startNewNote = () => {
         // console.log(documentRef);
         dispatch(activeNote(documentRef.id, newNote));
         // funcionalidad personalizada, checar
-        dispatch(startLoadingNotes(uid));
+        // dispatch(startLoadingNotes(uid)); Tambien funciona
+        dispatch(addNewNote(documentRef.id, newNote));
     }
 }
 
 export const activeNote = (id, note) => ({
     type: types.notesActive,
+    payload: {
+        id,
+        ...note
+    }
+})
+
+export const addNewNote = (id, note) => ({
+    type: types.notesAddNew,
     payload: {
         id,
         ...note
@@ -105,4 +114,8 @@ export const startDeleting = (id) => {
 export const deleteNote = (id) => ({
     type: types.notesDelete,
     payload: id
+})
+
+export const noteLogout = () => ({
+    type: types.notesLogoutCleaning
 })
