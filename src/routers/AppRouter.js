@@ -37,7 +37,7 @@ export const AppRouter = () => {
         return (
             <h1 className="nothing__main-content">
                 Wait, checking...
-                <i class="fas fa-spinner mt-5 nothing__spinner"></i>
+                <i className="fas fa-spinner mt-5 nothing__spinner"></i>
             </h1>
         )
     }

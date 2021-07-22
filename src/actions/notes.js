@@ -14,12 +14,18 @@ export const startNewNote = () => {
             date: new Date().getTime()
         }
 
-        const documentRef = await db.collection(`${ uid }/journal/notes`).add(newNote);
-        // console.log(documentRef);
-        dispatch(activeNote(documentRef.id, newNote));
-        // funcionalidad personalizada, checar
-        // dispatch(startLoadingNotes(uid)); Tambien funciona
-        dispatch(addNewNote(documentRef.id, newNote));
+        try {
+            const documentRef = await db.collection(`${ uid }/journal/notes`).add(newNote);
+            // console.log(documentRef);
+            dispatch(activeNote(documentRef.id, newNote));
+            // funcionalidad personalizada, checar
+            // dispatch(startLoadingNotes(uid)); Tambien funciona
+            dispatch(addNewNote(documentRef.id, newNote));
+            
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
@@ -94,6 +100,7 @@ export const startUploading = (file) => {
         });
 
         const fileUrl = await fileUpload(file);
+        console.log(activeNote, fileUrl);
         activeNote.url = fileUrl;
 
         dispatch(startSaveNote(activeNote))
