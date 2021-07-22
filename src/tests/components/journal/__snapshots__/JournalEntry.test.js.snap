@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test on component <JournalEntry /> should show itself correctly 1`] = `
+<div
+  className="journal__entry pointer animate__animated animate__fadeIn"
+  onClick={[Function]}
+>
+  <div
+    className="journal__entry-picture"
+    style={
+      Object {
+        "backgroundImage": "url(htttps://somewhere.com/foto.jpg)",
+        "backgroundSize": "cover",
+      }
+    }
+  />
+  <div
+    className="journal__entry-body"
+  >
+    <p
+      className="journal__entry-title"
+    >
+      Hola note
+    </p>
+    <p
+      className="journal__entry-content"
+    >
+      Mundo note
+    </p>
+  </div>
+  <div
+    className="journal__entry-date-box"
+  >
+    <span>
+      Wednesday
+    </span>
+    <h3>
+      31st
+    </h3>
+  </div>
+</div>
+`;
