@@ -49,7 +49,7 @@ describe('Test on action auth', () => {
     })
     
     test('should start startRegisterWithEmailPasswordName', async() => {
-        await store.dispatch(startLoginWithEmailPassword('brendtest@test.com', '987654'));
+        await store.dispatch(startLoginWithEmailPassword('brendtest@test.com', '987456'));
 
         const actions = store.getActions();
 
@@ -57,7 +57,7 @@ describe('Test on action auth', () => {
         expect(actions[1]).toEqual({
             type: types.login,
             payload: { 
-                uid: 'cikr043phHNIFJgA4DTjGQGzLYq2', 
+                uid: 'tyNqqGsqs3aTeTmniJvYXULDppU2', 
                 displayName: null 
             }
           })
